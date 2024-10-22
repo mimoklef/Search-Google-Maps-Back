@@ -192,6 +192,69 @@
 
 
 
+        //lu map section (when yout type an exact address)
+        const addressMapElement = document.querySelector('.lu_map_section');
+        if (addressMapElement) {
+            // Searching for the link containing "maps/dir/"
+            const adirElement = document.querySelector('a[href*="maps/dir/"]');
+            if (adirElement) {
+
+
+                // Clone link
+                const clonedAElement = adirElement.cloneNode(true);
+
+                clonedAElement.href = mapsLink;
+
+
+                // Insert the clone which will become a Map button
+                adirElement.parentNode.insertBefore(clonedAElement, adirElement.nextSibling);
+
+                // Searching the "Direction" text
+                const targetDiv = clonedAElement.querySelector('.QuU3Wb.sjVJQd');
+
+                if (targetDiv) {
+                    // Changing "Direction" to "Map"
+                    alert("recherche de mapdir")
+                    const newDiv = document.createElement('div');
+
+                    newDiv.textContent = 'Map';
+                    targetDiv.innerHTML = '';
+                    targetDiv.appendChild(newDiv);
+
+
+                    // Creating Map SVG element
+                    const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    svgElement.setAttribute('focusable', 'false');
+                    svgElement.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                    svgElement.setAttribute('viewBox', '0 0 24 24');
+                    svgElement.style.width = '60%';
+                    svgElement.style.fill = '#8ab4f8';
+
+                    const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    pathElement.setAttribute('d', 'M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z');
+                    svgElement.appendChild(pathElement);
+
+                    //Searching the icon div
+                    const svgDiv = clonedAElement.querySelector('.kHtcsd');
+                    if(svgDiv){
+                        svgDiv.innerHTML = '';
+                        svgDiv.appendChild(svgElement);
+                    }
+
+
+                }
+            } else {
+                //No direction link found ?
+            }
+        }else{
+        //No lu_map_section found
+        }
+
+
+
+
+
+
         //Big expandable map change direction to open in maps
 
         // Wait for the page to load entirely
@@ -257,6 +320,11 @@
             }
 
         });
+
+
+
+
+
 
 
     }
