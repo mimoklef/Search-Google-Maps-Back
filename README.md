@@ -28,7 +28,7 @@ Enjoy a smoother and more intuitive search experience, just like it was before t
 
    [![From GreasyFork](https://img.shields.io/badge/Tampermonkey-Install%20the%20Script-blue)](https://update.greasyfork.org/scripts/513482/Search%20Google%20Maps%20Back.user.js)
 
-   [![From Github](https://img.shields.io/badge/Tampermonkey-Install%20the%20Script-blue)](https://github.com/your-username/google-maps-button-restorer/raw/main/google-maps-button-restorer.user.js)
+   [![From Github](https://img.shields.io/badge/Tampermonkey-Install%20from%20GitHub-blue?logo=github)](https://raw.githubusercontent.com/mimouy/Search-Google-Maps-Back/main/search-google-maps-back.js)
 
 3. **Enable the script**:
    - Once the script is installed, make sure it is enabled in the Tampermonkey dashboard, especially on the Google Search page (when you perform a search).
