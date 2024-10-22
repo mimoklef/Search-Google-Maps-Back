@@ -1,13 +1,19 @@
 // ==UserScript==
 // @name         Search Google Maps Back
+// @name:fr      Retour de Google Maps Dans Recherche
 // @namespace    http://tampermonkey.net/
 // @version      2024-10-22
-// @description  This script bring google maps button back, makes search maps (big/mini and micro one) clickable and adds Open in Maps button back. It might not work anymore in a few months and need an update so feel free to update it whenever you want.
-// @author       Mimouy | Mimo (Mohamed) Bouyakhlef
+// @description  This script bring google maps button back, makes search maps (big/mini and micro one) clickable and adds Open in Maps button back. It might not work anymore in a few months and need an update so feel free to update it whenever you want, I'll try to do it whenever I can.
+// @description:fr Ce script remet le bouton google maps, rend les cartes de recherche (grandes/mini et micro) cliquables et ajoute le bouton Open in Maps (Ouvrir sur Maps) aux grandes cartes. Il se peut qu'il ne fonctionne plus dans quelques mois et qu'une mise à jour soit nécessaire, alors n'hésitez pas à le mettre à jour quand vous le souhaitez, pour ma part je le ferai dès que possible.
+// @author       Mimouy | Mimo (Mohamed) Bouyakhlef : https://github.com/mimouy
 // @match        https://www.google.com/search*
 // @include      https://www.google.tld/search*
 // @icon         https://i.ibb.co/RcMNxV3/gmback.jpg
 // @grant        none
+// @license MIT
+
+// @downloadURL https://update.greasyfork.org/scripts/513482/Search%20Google%20Maps%20Back.user.js
+// @updateURL https://update.greasyfork.org/scripts/513482/Search%20Google%20Maps%20Back.meta.js
 // ==/UserScript==
 
 (function() {
