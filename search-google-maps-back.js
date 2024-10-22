@@ -214,7 +214,6 @@
 
                 if (targetDiv) {
                     // Changing "Direction" to "Map"
-                    alert("recherche de mapdir")
                     const newDiv = document.createElement('div');
 
                     newDiv.textContent = 'Map';
