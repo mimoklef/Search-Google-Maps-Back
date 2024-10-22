@@ -1,4 +1,4 @@
-*Pour la version français, cliquez [ici](README_fr.md).*
+*Pour la version française, cliquez [ici](README_fr.md).*
 
 # Search Google Maps Back
 
@@ -52,4 +52,4 @@ Enjoy a smoother and more intuitive search experience, just like it was before t
 Contributions are welcome! If you have suggestions to improve the script or find bugs, feel free to open an **issue** or **pull request**, or simply leave a comment.
 
 
-*Pour la version français, cliquez [ici](README_fr.md).*
+*Pour la version française, cliquez [ici](README_fr.md).*
