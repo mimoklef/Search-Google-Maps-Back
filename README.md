@@ -25,12 +25,15 @@ Enjoy a smoother and more intuitive search experience, just like it was before t
 
 2. **Install the script**:
    - Click the button below to install the script via Tampermonkey:
-
+  
    [![From GreasyFork](https://img.shields.io/badge/Tampermonkey-Install%20the%20Script-blue)](https://update.greasyfork.org/scripts/513482/Search%20Google%20Maps%20Back.user.js)
 
    [![From Github](https://img.shields.io/badge/Tampermonkey-Install%20from%20GitHub-blue?logo=github)](https://raw.githubusercontent.com/mimouy/Search-Google-Maps-Back/main/search-google-maps-back.js)
 
-3. **Enable the script**:
+   [Link to the GreasyFork page](https://greasyfork.org/fr/scripts/513482-search-google-maps-back)
+
+
+4. **Enable the script**:
    - Once the script is installed, make sure it is enabled in the Tampermonkey dashboard, especially on the Google Search page (when you perform a search).
 
 ## 📸 Preview
