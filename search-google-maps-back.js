@@ -36,7 +36,7 @@
         const searchQuery = new URLSearchParams(window.location.search).get('q');
 
         //Use the search query as a link
-        const mapsLink = `https://maps.google.com/maps?q=${searchQuery}`;
+        const mapsLink = `https://www.google.com/maps?q=${searchQuery}`;
 
         //Big expandable map change direction to open in maps
 
@@ -121,7 +121,7 @@
         const searchQuery = new URLSearchParams(window.location.search).get('q');
 
         //Use the search query as a link
-        const mapsLink = `https://maps.google.com/maps?q=${searchQuery}`;
+        const mapsLink = `https://www.google.com/maps?q=${searchQuery}`;
 
 
         // Adding the Maps button to the tab if not already in
