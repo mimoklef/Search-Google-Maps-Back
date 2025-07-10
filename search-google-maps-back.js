@@ -2,7 +2,7 @@
 // @name         Search Google Maps Back
 // @name:fr      Retour de Google Maps Dans Recherche
 // @namespace    http://tampermonkey.net/
-// @version      202410281
+// @version      202507081
 // @description  This script bring google maps button back, makes search maps (big/mini and micro one) clickable and adds Open in Maps button back. It might not work anymore in a few months and need an update so feel free to update it whenever you want, I'll try to do it whenever I can.
 // @description:fr Ce script remet le bouton google maps, rend les cartes de recherche (grandes/mini et micro) cliquables et ajoute le bouton Open in Maps (Ouvrir sur Maps) aux grandes cartes. Il se peut qu'il ne fonctionne plus dans quelques mois et qu'une mise à jour soit nécessaire, alors n'hésitez pas à le mettre à jour quand vous le souhaitez, pour ma part je le ferai dès que possible.
 // @author       Mimouy | Mimo (Mohamed) Bouyakhlef : https://github.com/mimouy
@@ -36,7 +36,7 @@
         const searchQuery = new URLSearchParams(window.location.search).get('q');
 
         //Use the search query as a link
-        const mapsLink = `maps.google.com/maps?q=${searchQuery}`;
+        const mapsLink = `https://www.google.com/maps?q=${searchQuery}`;
 
         //Big expandable map change direction to open in maps
 
@@ -121,7 +121,7 @@
         const searchQuery = new URLSearchParams(window.location.search).get('q');
 
         //Use the search query as a link
-        const mapsLink = `maps.google.com/maps?q=${searchQuery}`;
+        const mapsLink = `https://www.google.com/maps?q=${searchQuery}`;
 
 
         // Adding the Maps button to the tab if not already in
