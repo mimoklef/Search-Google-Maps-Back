@@ -17,91 +17,83 @@
 // ==/UserScript==
 //Link to the git repo : https://github.com/mimouy/Search-Google-Maps-Back
 
-(function() {
-    'use strict';
-        let addedButton = false;
-
+(function () {
+    "use strict";
+    let addedButton = false;
 
     function addBigMapButton() {
-
-
-        if (addedButton){
+        if (addedButton) {
             return null;
         }
 
-
         //Get the search query
-        const searchQuery = new URLSearchParams(window.location.search).get('q');
+        const searchQuery = new URLSearchParams(window.location.search).get(
+            "q"
+        );
 
         //Use the search query as a link
         const mapsLink = `https://www.google.com/maps?q=${searchQuery}`;
 
         //Big expandable map change direction to open in maps
 
-            // Find the big map's buttons div class="EeWPwe", which contains Direction and Open in maps
-            const bigMapButtonsElement = document.querySelector('.EeWPwe');
+        // Find the big map's buttons div class="EeWPwe", which contains Direction and Open in maps
+        const bigMapButtonsElement = document.querySelector(".EeWPwe");
 
-            if (bigMapButtonsElement) {
-                // Find all bigMapButtonsElement a childs (which are Direction and Open in Maps buttons)
-                const aElements = bigMapButtonsElement.querySelectorAll('a');
+        if (bigMapButtonsElement) {
+            // Find all bigMapButtonsElement a childs (which are Direction and Open in Maps buttons)
+            const aElements = bigMapButtonsElement.querySelectorAll("a");
 
+            // If there is only one <a> = No Open in maps button, only Direction one
+            if (aElements.length === 1) {
+                // Clone it
+                const clonedAElement = aElements[0].cloneNode(true);
 
+                // Change the link for Direction to Maps one
+                if (clonedAElement.href.includes("maps/dir/")) {
+                    clonedAElement.href = mapsLink;
+                }
 
+                // Add the clone
+                aElements[0].parentNode.insertBefore(
+                    clonedAElement,
+                    aElements[0].nextSibling
+                );
 
-                // If there is only one <a> = No Open in maps button, only Direction one
-                if (aElements.length === 1) {
-                    // Clone it
-                    const clonedAElement = aElements[0].cloneNode(true);
+                // Find the element with "m0MNmc" which contains text "Direction" and change it to Open in Maps (Sorry for ppl who have their google in other langages)
+                const m0MNmcSpan = clonedAElement.querySelector(".m0MNmc");
+                if (m0MNmcSpan) {
+                    m0MNmcSpan.textContent = "Open in Maps"; //You can put whatever you want here, if you want it to show in another langage
+                }
 
-                    // Change the link for Direction to Maps one
-                    if (clonedAElement.href.includes('maps/dir/')) {
-                        clonedAElement.href = mapsLink;
-                    }
-
-                    // Add the clone
-                    aElements[0].parentNode.insertBefore(clonedAElement, aElements[0].nextSibling);
-
-                    // Find the element with "m0MNmc" which contains text "Direction" and change it to Open in Maps (Sorry for ppl who have their google in other langages)
-                    const m0MNmcSpan = clonedAElement.querySelector('.m0MNmc');
-                    if (m0MNmcSpan) {
-                        m0MNmcSpan.textContent = 'Open in Maps'; //You can put whatever you want here, if you want it to show in another langage
-                    }
-
-                    // Find the "POUQwd WN4Zxc" span in the clone, which is the icon one, and change it to Maps icon
-                    const pouqwdElement = clonedAElement.querySelector('.POUQwd.WN4Zxc');
-                    if (pouqwdElement) {
-                        // Create maps icon
-                        const newDiv = document.createElement('div');
-                        newDiv.className = 'POUQwd WN4Zxc';
-                        newDiv.innerHTML = ` <span>
+                // Find the "POUQwd WN4Zxc" span in the clone, which is the icon one, and change it to Maps icon
+                const pouqwdElement =
+                    clonedAElement.querySelector(".POUQwd.WN4Zxc");
+                if (pouqwdElement) {
+                    // Create maps icon
+                    const newDiv = document.createElement("div");
+                    newDiv.className = "POUQwd WN4Zxc";
+                    newDiv.innerHTML = ` <span>
                         <span style="height:20px;line-height:20px;width:20px" class="z1asCe Y5lOv">
                         <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"></path>
                         </svg>
                     </span>
-                </span>`
-            ;
-                        // Replace it
-                        pouqwdElement.parentNode.replaceChild(newDiv, pouqwdElement);
-                        addedButton = true;
-                    }
-
-                } else if (aElements.length > 1) {
-                    //There are two elements so I think there's no need to do anything, as the second one must be "Open in Maps" button
-                } else {
-                    //No <a> found ?
+                </span>`;
+                    // Replace it
+                    pouqwdElement.parentNode.replaceChild(
+                        newDiv,
+                        pouqwdElement
+                    );
+                    addedButton = true;
                 }
-
-
-            }else {
-                //No "EeWPwe" found ?
+            } else if (aElements.length > 1) {
+                //There are two elements so I think there's no need to do anything, as the second one must be "Open in Maps" button
+            } else {
+                //No <a> found ?
             }
-
-
-
-
-
-
+        } else {
+            //No "EeWPwe" found ?
+        }
     }
 
     function addMapsButton() {
@@ -110,40 +102,44 @@
         }
 
         // Find the tab bar container
-        const tabsContainer = document.querySelector('.beZ0tf.O1uzAe');
-        const searchQuery = new URLSearchParams(window.location.search).get("q");
+        const tabsContainer = document.querySelector(".beZ0tf.O1uzAe");
+        const searchQuery = new URLSearchParams(window.location.search).get(
+            "q"
+        );
         const mapsLink = `https://www.google.com/maps?q=${searchQuery}`;
 
         if (tabsContainer) {
             // Prüfe, ob Maps-Button schon existiert
             let hasMaps = false;
-            tabsContainer.querySelectorAll('a.C6AK7c').forEach(a => {
-                if (a.href.includes('google.com/maps')) hasMaps = true;
+            tabsContainer.querySelectorAll("a.C6AK7c").forEach((a) => {
+                if (a.href.includes("google.com/maps")) hasMaps = true;
             });
             if (!hasMaps) {
                 // Erstelle neuen Button
-                const listItem = document.createElement('div');
-                listItem.setAttribute('role', 'listitem');
+                const listItem = document.createElement("div");
+                listItem.setAttribute("role", "listitem");
 
-                const mapsA = document.createElement('a');
-                mapsA.className = 'C6AK7c';
+                const mapsA = document.createElement("a");
+                mapsA.className = "C6AK7c";
                 mapsA.href = mapsLink;
-                mapsA.setAttribute('jsname', 'pxBnId');
+                mapsA.setAttribute("jsname", "pxBnId");
 
-                const innerDiv = document.createElement('div');
-                innerDiv.setAttribute('jsname', 'xBNgKe');
-                innerDiv.className = 'mXwfNd';
+                const innerDiv = document.createElement("div");
+                innerDiv.setAttribute("jsname", "xBNgKe");
+                innerDiv.className = "mXwfNd";
 
-                const span = document.createElement('span');
-                span.className = 'R1QWuf';
-                span.textContent = 'Maps';
+                const span = document.createElement("span");
+                span.className = "R1QWuf";
+                span.textContent = "Maps";
 
                 innerDiv.appendChild(span);
                 mapsA.appendChild(innerDiv);
                 listItem.appendChild(mapsA);
 
                 // Add the Maps button after the "All" tab (second position)
-                const allItems = tabsContainer.querySelector('div[role="listitem"]');
+                const allItems = tabsContainer.querySelector(
+                    'div[role="listitem"]'
+                );
                 if (allItems && allItems.nextSibling) {
                     tabsContainer.insertBefore(listItem, allItems.nextSibling);
                 } else {
@@ -347,11 +343,10 @@
         }
     }
 
-
-            window.addEventListener('load', () => {
-                addMapsButton();
-                addBigMapButton();
-            });
+    window.addEventListener("load", () => {
+        addMapsButton();
+        addBigMapButton();
+    });
 
     // Call the function to add the button
 })();
